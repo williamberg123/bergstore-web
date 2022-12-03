@@ -6,4 +6,9 @@ export const GlobalStyles = createGlobalStyle`
 		margin: 0;
 		box-sizing: border-box;
 	}
+
+	body {
+		background-color: ${({ theme }) => theme.colors.secondary};
+		font-family: 'Roboto', sans-serif;
+	}
 `;
