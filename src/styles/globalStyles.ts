@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { ThemeProps } from './theme';
 
 export const GlobalStyles = createGlobalStyle`
 	* {
@@ -8,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 	body {
-		background-color: ${({ theme }) => theme.colors.secondary};
+		background-color: ${({ theme }: { theme: ThemeProps }) => theme.colors.secondary};
 		font-family: 'Roboto', sans-serif;
 	}
 `;
