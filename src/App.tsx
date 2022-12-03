@@ -1,9 +1,18 @@
-function App() {
+import { ThemeProvider } from 'styled-components';
+import { Login } from './pages/Login';
+import { AppRoutes } from './routes';
+import { theme } from './styles/theme';
+
+export default function App() {
+	const user = false;
+
 	return (
-		<div className="App">
-			<h1>Olá, mundo</h1>
-		</div>
+		<ThemeProvider theme={theme}>
+			{
+				user
+				? <AppRoutes />
+				: <Login />
+			}
+		</ThemeProvider>
 	);
 }
-
-export default App;
