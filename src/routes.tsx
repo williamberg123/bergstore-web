@@ -24,7 +24,7 @@ export const AppRoutes = () => {
 				path="/"
 				element={
 					(
-						<PrivateRoute isAuth={false} backTo="/login">
+						<PrivateRoute isAuth backTo="/login">
 							<Root />
 						</PrivateRoute>
 					)
