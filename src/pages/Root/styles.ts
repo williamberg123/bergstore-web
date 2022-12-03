@@ -20,6 +20,7 @@ export const RootHeader = styled.header`
 
 	@media (max-width: 800px) {
 		flex-direction: row-reverse;
+		padding: 10px 20px;
 	}
 `;
 
