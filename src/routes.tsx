@@ -13,7 +13,7 @@ interface PrivateRouteProps {
 	backTo: string;
 }
 
-export const PrivateRoute = ({ children, isAuth, backTo }: PrivateRouteProps) => {
+export const PrivateRoute = ({ children, isAuth, backTo }: PrivateRouteProps): any => {
 	return isAuth ? children : <Navigate to={backTo} />;
 };
 
