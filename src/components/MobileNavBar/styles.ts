@@ -6,11 +6,12 @@ export const Container = styled.nav`
 	justify-content: space-between;
 	width: 100%;
 	height: 60px;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	left: 0;
 	border-top: 1px solid #AEAEAE;
 	padding: 20px 0;
+	background-color: ${({ theme }) => theme.colors.secondary};
 `;
 
 export const UlNavigation = styled.ul`

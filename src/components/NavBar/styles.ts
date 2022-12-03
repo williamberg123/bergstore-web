@@ -7,7 +7,7 @@ export const Container = styled.nav`
 	justify-content: space-between;
 	width: 120px;
 	height: 100vh;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	border-right: 1px solid #AEAEAE;

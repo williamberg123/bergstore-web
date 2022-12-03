@@ -16,7 +16,7 @@ export const RootHeader = styled.header`
 	align-items: center;
 	justify-content: space-between;
 	padding: 20px;
-	border-bottom: 1px solid #AEAEAE;
+	margin-bottom: 20px;
 
 	@media (max-width: 800px) {
 		flex-direction: row-reverse;

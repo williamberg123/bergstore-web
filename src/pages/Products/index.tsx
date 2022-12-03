@@ -1,9 +1,28 @@
-import { Container } from './styles';
+import { Product } from '../../components/Product';
+import { Container, ProductsContainer, ProductsPageTitle, SearchProductInput } from './styles';
 
 export function Products() {
 	return (
 		<Container>
-			<h1>Products</h1>
+			<ProductsPageTitle>
+				Nossos produtos
+				<SearchProductInput type="text" placeholder="procure um produto" />
+			</ProductsPageTitle>
+
+			<ProductsContainer>
+				<Product />
+				<Product />
+				<Product />
+				<Product />
+				<Product />
+				<Product />
+				<Product />
+				<Product />
+				<Product />
+				<Product />
+				<Product />
+				<Product />
+			</ProductsContainer>
 		</Container>
 	);
 }
