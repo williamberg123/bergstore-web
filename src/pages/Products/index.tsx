@@ -21,7 +21,6 @@ export function Products() {
 				<Product />
 				<Product />
 				<Product />
-				<Product />
 			</ProductsContainer>
 		</Container>
 	);

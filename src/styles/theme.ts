@@ -1,6 +1,6 @@
 export interface ThemeProps {
 	colors: {
-		primary: '#FE1F6F',
+		primary: '#FF005C',
 		secondary: '#EEEEEE',
 		lightGray: '#D9D9D9',
 	},
@@ -8,7 +8,7 @@ export interface ThemeProps {
 
 export const theme: ThemeProps = {
 	colors: {
-		primary: '#FE1F6F',
+		primary: '#FF005C',
 		secondary: '#EEEEEE',
 		lightGray: '#D9D9D9',
 	},

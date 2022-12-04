@@ -6,6 +6,7 @@ import { Login } from './pages/Login';
 import { Home } from './pages/Home';
 import { Products } from './pages/Products';
 import { ShoppingCart } from './pages/ShoppingCart';
+import { ProductPage } from './pages/ProductPage';
 
 interface PrivateRouteProps {
 	children: ReactNode;
@@ -32,6 +33,7 @@ export const AppRoutes = () => {
 			>
 				<Route path="/" element={<Home />} />
 				<Route path="/products" element={<Products />} />
+				<Route path="/products/:id" element={<ProductPage />} />
 				<Route path="/shoppingcart" element={<ShoppingCart />} />
 			</Route>
 			<Route path="/login" element={<Login />} />

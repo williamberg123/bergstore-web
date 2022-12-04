@@ -8,6 +8,10 @@ export const Container = styled.div`
 	border-radius: 10px;
 	padding: 0 10px 10px;
 	background-color: white;
+
+	@media (max-width: 600px) {
+		width: 200px;
+	}
 `;
 
 export const Figure = styled.figure`
@@ -16,6 +20,12 @@ export const Figure = styled.figure`
 	background-color: #AEAEAE;
 	border-radius: 10px;
 	margin: 0 -10px;
+
+	& > a {
+		display: flex;
+		width: 100%;
+		height: 100%;
+	}
 `;
 
 export const ProductImage = styled.img``;
@@ -25,6 +35,10 @@ export const ProductName = styled.span`
 	font-size: 1.25rem;
 	color: ${({ theme }) => theme.colors.primary};
 	margin: 5px 0;
+
+	@media (max-width: 600px) {
+		font-size: 1rem;
+	}
 `;
 
 export const ProductDescription = styled.span`
@@ -55,5 +69,9 @@ export const AddProductButton = styled.button`
 		& svg {
 			color: white;
 		}
+	}
+
+	@media (max-width: 600px) {
+		height: 30px;
 	}
 `;

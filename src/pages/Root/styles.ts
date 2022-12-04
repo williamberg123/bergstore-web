@@ -11,14 +11,18 @@ export const OutletContainer = styled.div`
 `;
 
 export const RootHeader = styled.header`
-	width: 100%;
+	width: calc(100% - 120px);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding: 20px;
 	margin-bottom: 20px;
+	position: absolute;
+	top: 0;
+	right: 0;
 
 	@media (max-width: 800px) {
+		width: 100%;
 		flex-direction: row-reverse;
 		padding: 10px 20px;
 	}
