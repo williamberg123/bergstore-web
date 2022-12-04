@@ -1,8 +1,7 @@
-import { useParams } from 'react-router-dom';
 import { Container, ProductDescription, ProductImage, ProductInfoContainer, ProductName, ProductPrice } from './styles';
 
 export function ProductPage() {
-	const { id } = useParams();
+	// const { id } = useParams();
 
 	return (
 		<Container>
