@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-	flex: 1;
 	display: flex;
-	margin-top: 70px;
+	align-items: center;
+	justify-content: space-between;
 `;

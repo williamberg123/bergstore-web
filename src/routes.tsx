@@ -7,6 +7,7 @@ import { Home } from './pages/Home';
 import { Products } from './pages/Products';
 import { ShoppingCart } from './pages/ShoppingCart';
 import { ProductPage } from './pages/ProductPage';
+import { useAuth } from './hooks/useAuth';
 
 interface PrivateRouteProps {
 	children: ReactNode;
@@ -19,13 +20,15 @@ export const PrivateRoute = ({ children, isAuth, backTo }: PrivateRouteProps): a
 };
 
 export const AppRoutes = () => {
+	const { user, token } = useAuth();
+
 	return (
 		<Routes>
 			<Route
 				path="/"
 				element={
 					(
-						<PrivateRoute isAuth backTo="/login">
+						<PrivateRoute isAuth={!!user && !!token} backTo="/login">
 							<Root />
 						</PrivateRoute>
 					)

@@ -1,12 +1,61 @@
 import { useState } from 'react';
+import { FieldValues, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { UserType } from '../../@types/user';
+
 import { Form } from '../../components/Form';
 import { Logo } from '../../components/Logo';
+import { useAuth } from '../../hooks/useAuth';
+import { api } from '../../services/api';
+
 import { ChangeFormType, Container, FormTitle, Label, LoginHeader, SubTitle, TextContainer, Title } from './styles';
 
 export function Login() {
 	const [isFormLogin, setIsFormLogin] = useState(true);
+	const navigate = useNavigate();
 
-	const onSubmit = () => {};
+	const { handleSubmit, register } = useForm();
+	const { changeUser, changeToken } = useAuth();
+
+	const handleLogin = async (data: FieldValues) => {
+		try {
+			const response = await api.post('/users/authenticate', data);
+
+			const { user, token }: { user: UserType, token: string } = response.data;
+
+			if (!user) return alert('Usuário ou senha incorretos');
+
+			changeUser(user);
+			changeToken(token);
+			navigate('/');
+		} catch (error) {
+			alert('Usuário ou senha incorretos');
+		}
+	};
+
+	const handleCreateAccount = async (data: FieldValues) => {
+		try {
+			const response = await api.post('/users/new', data);
+
+			const { user, token }: { user: UserType, token: string } = response.data;
+
+			if (!user) return alert('Não foi possível criar sua conta');
+
+			changeUser(user);
+			changeToken(token);
+			navigate('/');
+		} catch (error) {
+			alert('Não foi possível criar sua conta');
+		}
+	};
+
+	const onSubmit = (data: FieldValues) => {
+		if (isFormLogin) {
+			handleLogin(data);
+		} else {
+			handleCreateAccount(data);
+		}
+	};
 
 	return (
 		<Container>
@@ -25,17 +74,17 @@ export function Login() {
 				</SubTitle>
 			</TextContainer>
 
-			<Form onSubmit={onSubmit}>
+			<Form onSubmit={handleSubmit(onSubmit)}>
 				<FormTitle>{isFormLogin ? 'Login' : 'Criar conta'}</FormTitle>
 
 				<Label>
 					Email
-					<input type="email" placeholder="digite seu email" />
+					<input {...register('email', { required: true })} type="email" placeholder="digite seu email" />
 				</Label>
 
 				<Label>
 					Password
-					<input type="password" placeholder="digite sua senha" />
+					<input {...register('password', { required: true })} type="password" placeholder="digite sua senha" />
 				</Label>
 
 				<ChangeFormType onClick={() => setIsFormLogin((s) => !s)}>

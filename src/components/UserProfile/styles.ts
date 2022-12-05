@@ -11,6 +11,7 @@ export const Container = styled.div`
 	background-color: ${({ theme }) => theme.colors.primary};
 	color: white;
 	cursor: pointer;
+	text-transform: uppercase;
 `;
 
 export const Letter = styled.span`
