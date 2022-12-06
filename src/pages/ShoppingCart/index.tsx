@@ -1,9 +1,20 @@
+import { ShoppingCartItem } from '../../components/ShoppingCartItem';
 import { Container } from './styles';
 
 export function ShoppingCart() {
 	return (
 		<Container>
-			<h1>ShoppingCart</h1>
+			<ShoppingCartItem />
+			<ShoppingCartItem />
+			<ShoppingCartItem />
+			<ShoppingCartItem />
+			<ShoppingCartItem />
+			<ShoppingCartItem />
+			<ShoppingCartItem />
+			<ShoppingCartItem />
+			<ShoppingCartItem />
+			<ShoppingCartItem />
+			<ShoppingCartItem />
 		</Container>
 	);
 }

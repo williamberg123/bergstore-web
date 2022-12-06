@@ -1,9 +1,17 @@
-import { Container } from './styles';
+import { Container, DecreaseButton, IncreaseButton, ProductAmount, ProductFigure, ProductImage, ProductName, RemoveButton } from './styles';
 
 export function ShoppingCartItem() {
 	return (
 		<Container>
-			Item
+			<ProductFigure>
+				<ProductImage />
+			</ProductFigure>
+
+			<ProductName>Camisa polo branca M</ProductName>
+			<ProductAmount>1</ProductAmount>
+			<IncreaseButton>+</IncreaseButton>
+			<DecreaseButton>-</DecreaseButton>
+			<RemoveButton>Remove</RemoveButton>
 		</Container>
 	);
 }

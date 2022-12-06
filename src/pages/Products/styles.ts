@@ -5,6 +5,10 @@ export const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-top: 70px;
+
+	& svg {
+		margin: auto;
+	}
 `;
 
 export const ProductsContainer = styled.div`

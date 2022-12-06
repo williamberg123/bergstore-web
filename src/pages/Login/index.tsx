@@ -6,6 +6,7 @@ import { UserType } from '../../@types/user';
 import { Form } from '../../components/Form';
 import { Logo } from '../../components/Logo';
 import { useAuth } from '../../hooks/useAuth';
+import { useMessage } from '../../hooks/useMessage';
 import { api } from '../../services/api';
 
 import { ChangeFormType, Container, FormTitle, Label, LoginHeader, SubTitle, TextContainer, Title } from './styles';
@@ -16,6 +17,7 @@ export function Login() {
 
 	const { handleSubmit, register } = useForm();
 	const { changeUser, changeToken } = useAuth();
+	const { showMessage } = useMessage();
 
 	const handleLogin = async (data: FieldValues) => {
 		try {
@@ -28,8 +30,10 @@ export function Login() {
 			changeUser(user);
 			changeToken(token);
 			navigate('/');
+			showMessage('SUCCESS', 'Usuário logado com sucesso.');
 		} catch (error) {
-			alert('Usuário ou senha incorretos');
+			console.log(error);
+			showMessage('ERROR', 'Usuário ou senha incorretos.');
 		}
 	};
 
@@ -44,7 +48,9 @@ export function Login() {
 			changeUser(user);
 			changeToken(token);
 			navigate('/');
+			showMessage('SUCCESS', 'Usuário criado com sucesso.');
 		} catch (error) {
+			console.log(error);
 			alert('Não foi possível criar sua conta');
 		}
 	};
