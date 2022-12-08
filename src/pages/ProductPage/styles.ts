@@ -25,7 +25,7 @@ export const ProductDescription = styled.span`
 `;
 
 export const ProductImage = styled.img`
-	background-color: black;
+	background-color: #AEAEAE;
 	width: 400px;
 	height: 320px;
 	border-radius: 20px;

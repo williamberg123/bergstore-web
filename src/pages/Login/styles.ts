@@ -125,3 +125,29 @@ export const ChangeFormType = styled.span`
 		text-decoration: underline;
 	}
 `;
+
+export const SubmitButton = styled.button`
+	width: 300px;
+	height: 50px;
+	border-radius: 10px;
+	border: 1px solid ${({ theme }) => theme.colors.lightGray};
+	padding: 0 15px;
+	background-color: ${({ theme }) => theme.colors.primary};
+	color: white;
+	font-weight: bold;
+	font-size: 1rem;
+	margin-top: 20px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+
+	& svg {
+		width: 90px;
+		height: 90px;
+	}
+`;

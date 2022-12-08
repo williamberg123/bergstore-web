@@ -43,7 +43,7 @@ export function Product({ name, description, price, _id, hasAlreadyAdded }: Prod
 	return (
 		<Container>
 			<Figure>
-				<Link to="/products/357436547568">
+				<Link to={`/products/${_id}`}>
 					<ProductImage />
 				</Link>
 			</Figure>
