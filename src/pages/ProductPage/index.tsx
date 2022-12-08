@@ -35,13 +35,13 @@ export function ProductPage() {
 		findProductInfo();
 	}, [id]);
 
-	const formatedPrice = Number(product?.price / 100).toFixed(2).replace('.', ',');
+	const formatedPrice = Number(product.price / 100).toFixed(2).replace('.', ',');
 
 	return (
 		<Container>
 			{
 				isLoading
-					? <InfinitySpin color="black" />
+					? <InfinitySpin color="#FF005C" />
 					: (
 						<>
 							<ProductInfoContainer>
