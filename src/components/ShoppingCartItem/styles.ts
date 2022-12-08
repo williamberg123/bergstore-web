@@ -2,36 +2,49 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 	width: 90%;
-	height: 100px;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 	background-color: white;
 	margin: 0 auto 20px;
+	padding: 10px;
 	border-radius: 10px;
 	box-shadow: 2px 2px 10px #AEAEAE;
 `;
 
 export const ProductFigure = styled.figure`
-	height: 80px;
-	aspect-ratio: 5/4;
-	background-color: #AEAEAE;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	border-radius: 10px;
 `;
 
 export const ProductImage = styled.img`
-	width: 100%;
-	height: 100%;
+	display: flex;
+	height: 80px;
+	width: 100px;
 	border-radius: 10px;
+	background-color: #AEAEAE;
+
+	@media (max-width: 600px) {
+		width: 80px;
+		height: 64px;
+	}
 `;
 
-export const ProductName = styled.span`
+export const ProductName = styled.figcaption`
 	font-weight: bold;
 	color: ${({ theme }) => theme.colors.primary};
+	margin-top: 10px;
+
+	@media (max-width: 600px) {
+		font-size: 0.8rem;
+	}
 `;
 
 export const ProductAmount = styled.span`
 	color: #AEAEAE;
+	font-weight: bold;
 `;
 
 export const IncreaseButton = styled.button`
@@ -45,6 +58,11 @@ export const IncreaseButton = styled.button`
 	color: white;
 	border: none;
 	cursor: pointer;
+
+	@media (max-width: 600px) {
+		width: 20px;
+		height: 20px;
+	}
 `;
 
 export const DecreaseButton = styled(IncreaseButton)``;

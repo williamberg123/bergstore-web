@@ -32,7 +32,6 @@ export function Login() {
 			navigate('/');
 			showMessage('SUCCESS', 'Usuário logado com sucesso.');
 		} catch (error) {
-			console.log(error);
 			showMessage('ERROR', 'Usuário ou senha incorretos.');
 		}
 	};
@@ -50,7 +49,6 @@ export function Login() {
 			navigate('/');
 			showMessage('SUCCESS', 'Usuário criado com sucesso.');
 		} catch (error) {
-			console.log(error);
 			alert('Não foi possível criar sua conta');
 		}
 	};

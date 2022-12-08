@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+	font-family: 'Montserrat', sans-serif;
 	width: 250px;
 	height: fit-content;
 	display: flex;
@@ -32,7 +33,7 @@ export const ProductImage = styled.img``;
 
 export const ProductName = styled.span`
 	font-weight: bold;
-	font-size: 1.25rem;
+	font-size: 1.1rem;
 	color: ${({ theme }) => theme.colors.primary};
 	margin: 5px 0;
 
@@ -50,6 +51,7 @@ export const ProductDescription = styled.span`
 
 export const ProductPrice = styled.span`
 	font-weight: bold;
+	font-size: 0.8rem;
 	color: ${({ theme }) => theme.colors.primary};
 	margin-top: 10px;
 `;
@@ -59,12 +61,27 @@ export const AddProductButton = styled.button`
 	height: 40px;
 	color: ${({ theme }) => theme.colors.primary};
 	border: 2px solid ${({ theme }) => theme.colors.primary};
+	background-color: white;
 	border-radius: 10px;
 	cursor: pointer;
 	margin-top: 10px;
 
+	& svg {
+		width: 20px;
+		height: 20px;
+	}
+
 	&:hover {
 		background-color: ${({ theme }) => theme.colors.primary};
+
+		& svg {
+			color: white;
+		}
+	}
+
+	&:disabled {
+		background-color: #ffbad6;
+		border-color: #ffbad6;
 
 		& svg {
 			color: white;

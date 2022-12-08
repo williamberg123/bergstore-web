@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
 
 import { Product } from '../../components/Product';
@@ -12,14 +12,15 @@ import { Container, ProductsContainer, ProductsPageTitle, SearchProductInput } f
 export function Products() {
 	const [products, setProducts] = useState<ProductType[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const [search, setSearch] = useState('');
 
-	const { token } = useAuth();
+	const { user, token } = useAuth();
 	const { showMessage } = useMessage();
 
 	const findProducts = async () => {
 		try {
 			setIsLoading(true);
-			const { data } = await api.get('/products/list_all', {
+			const { data } = await api.get(`/products/list_all/shoppingcart/${user?.shopping_cart_id}`, {
 				headers: {
 					'x-acess-token': token,
 				},
@@ -28,22 +29,29 @@ export function Products() {
 			setProducts(data.products);
 			showMessage('SUCCESS', 'Confira nossos produtos.');
 		} catch (error) {
-			console.log(error);
 			showMessage('ERROR', 'Não foi possível buscar os produtos.');
 		} finally {
 			setIsLoading(false);
 		}
 	};
 
+	const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
+		const value = e.target.value.toLowerCase();
+
+		setSearch(value);
+	};
+
 	useEffect(() => {
 		findProducts();
 	}, []);
+
+	const filteredProducts = search ? products.filter(({ name }) => name.toLowerCase().includes(search)) : products;
 
 	return (
 		<Container>
 			<ProductsPageTitle>
 				Nossos produtos
-				<SearchProductInput type="text" placeholder="procure um produto" />
+				<SearchProductInput onChange={handleChangeSearch} type="text" placeholder="procure um produto" />
 			</ProductsPageTitle>
 
 			{
@@ -52,12 +60,13 @@ export function Products() {
 					: (
 						<ProductsContainer>
 							{
-								products.map((p: ProductType, index: number) => <Product key={`product0${index + 1}`} {...p} />)
+								filteredProducts.map((p: ProductType, index: number) => (
+									<Product key={`product0${index + 1}`} {...p} />
+								))
 							}
 						</ProductsContainer>
 					)
 			}
-
 		</Container>
 	);
 }
