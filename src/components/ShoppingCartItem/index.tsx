@@ -56,6 +56,11 @@ export function ShoppingCartItem({ name, _id, count, removeOneProduct }: Product
 
 	const decreaseProductAmount = async () => {
 		try {
+			if (productAmount <= 1) {
+				showMessage('ERROR', 'Não é possível realizar a ação desejada');
+				return;
+			}
+
 			await api.post(`/shoppingcarts/${user?.shopping_cart_id}/change_product_amount`, {
 				product_id: _id, amount: -1,
 			}, {

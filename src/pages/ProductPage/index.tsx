@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
+
+import { useMessage } from '../../hooks/useMessage';
 import { ProductType } from '../../@types/product';
 import { useAuth } from '../../hooks/useAuth';
 import { api } from '../../services/api';
-import { Container, ProductDescription, ProductImage, ProductInfoContainer, ProductName, ProductPrice } from './styles';
+import { AddProductButton, AvaliateProductButton, ButtonsContainer, Container, CountStar, Dot, DotsContainer, ProductDescription, ProductImage, ProductInfoContainer, ProductName, ProductPrice } from './styles';
 
 export function ProductPage() {
 	const [product, setProduct] = useState({} as ProductType);
@@ -12,6 +14,7 @@ export function ProductPage() {
 
 	const { id } = useParams();
 	const { token } = useAuth();
+	const { showMessage } = useMessage();
 
 	const findProductInfo = async () => {
 		try {
@@ -25,7 +28,7 @@ export function ProductPage() {
 
 			setProduct(data);
 		} catch (error) {
-			console.log(error);
+			showMessage('ERROR', 'Não foi possível buscar o produto');
 		} finally {
 			setIsLoading(false);
 		}
@@ -47,7 +50,23 @@ export function ProductPage() {
 							<ProductInfoContainer>
 								<ProductName>{product?.name}</ProductName>
 								<ProductDescription>{product?.description}</ProductDescription>
+
+								<DotsContainer>
+									<Dot />
+									<Dot />
+									<Dot />
+									<Dot />
+									<Dot />
+
+									<CountStar>4x</CountStar>
+								</DotsContainer>
+
 								<ProductPrice>R${formatedPrice}</ProductPrice>
+
+								<ButtonsContainer>
+									<AvaliateProductButton>Avaliar produto</AvaliateProductButton>
+									<AddProductButton>Adicionar ao carrinho</AddProductButton>
+								</ButtonsContainer>
 							</ProductInfoContainer>
 
 							<ProductImage />

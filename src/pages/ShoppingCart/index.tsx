@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
+import { BsCartCheck } from 'react-icons/bs';
 
 import { ShoppingCartItem } from '../../components/ShoppingCartItem';
 import { useMessage } from '../../hooks/useMessage';
@@ -7,7 +8,7 @@ import { ProductType } from '../../@types/product';
 import { useAuth } from '../../hooks/useAuth';
 import { api } from '../../services/api';
 
-import { Container, ItemsContainer, ShoppingCartPageTitle } from './styles';
+import { Container, ItemsContainer, NoProductsText, ShoppingCartPageTitle } from './styles';
 
 export function ShoppingCart() {
 	const [products, setProducts] = useState<ProductType[]>([]);
@@ -46,7 +47,8 @@ export function ShoppingCart() {
 	return (
 		<Container>
 			<ShoppingCartPageTitle>
-				Seu carrinho de compras
+				<BsCartCheck />
+				Carrinho de compras
 			</ShoppingCartPageTitle>
 
 			{
@@ -65,6 +67,12 @@ export function ShoppingCart() {
 							}
 						</ItemsContainer>
 					)
+			}
+
+			{
+				(!isLoading && !products.length) && (
+					<NoProductsText>Não há nada no carrinho</NoProductsText>
+				)
 			}
 		</Container>
 	);

@@ -1,5 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
+import { BsBag } from 'react-icons/bs';
 
 import { Product } from '../../components/Product';
 import { ProductType } from '../../@types/product';
@@ -50,7 +51,10 @@ export function Products() {
 	return (
 		<Container>
 			<ProductsPageTitle>
-				Nossos produtos
+				<span>
+					<BsBag />
+					Nossos produtos
+				</span>
 				<SearchProductInput onChange={handleChangeSearch} type="text" placeholder="procure um produto" />
 			</ProductsPageTitle>
 

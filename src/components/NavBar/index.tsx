@@ -9,7 +9,7 @@ import { Container, UlNavigation } from './styles';
 export type PageType = 'home' | 'products' | 'shoppingcart'
 
 export function NavBar() {
-	const [ page, setPage ] = useState<PageType>('home');
+	const [page, setPage] = useState<PageType>('home');
 
 	const changePage = (p: PageType) => {
 		setPage(p);

@@ -10,7 +10,7 @@ import { api } from '../../services/api';
 import { AddProductButton, Container, Figure, ProductDescription, ProductImage, ProductName, ProductPrice } from './styles';
 
 export function Product({ name, description, price, _id, hasAlreadyAdded }: ProductType) {
-	const [ hasAdded, setHasAdded ] = useState(hasAlreadyAdded);
+	const [hasAdded, setHasAdded] = useState(hasAlreadyAdded);
 
 	const { user, token } = useAuth();
 	const { showMessage } = useMessage();
@@ -53,9 +53,10 @@ export function Product({ name, description, price, _id, hasAlreadyAdded }: Prod
 			<ProductPrice>R${formatedPrice}</ProductPrice>
 			<AddProductButton onClick={addProductToShoppingCart} disabled={hasAdded}>
 				{
+
 					hasAdded
-					? <FaCheckCircle />
-					: <FaCartPlus />
+						? <FaCheckCircle />
+						: <FaCartPlus />
 				}
 			</AddProductButton>
 		</Container>

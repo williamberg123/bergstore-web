@@ -4,7 +4,7 @@ export const Container = styled.div`
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	margin-top: 70px;
+	margin-top: 90px;
 
 	& svg {
 		margin: auto;
@@ -28,9 +28,19 @@ export const ProductsPageTitle = styled.span`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 20px 30px;
+	padding: 20px;
 	font-weight: 300;
 	font-size: 2rem;
+
+	& span {
+		display: flex;
+		align-items: center;
+		margin-right: auto;
+
+		& svg {
+			margin-right: 10px;
+		}
+	}
 
 	@media (max-width: 800px) {
 		font-size: 1.2rem;
