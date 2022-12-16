@@ -29,7 +29,7 @@ export function Login() {
 
 			const { user, token }: { user: UserType, token: string } = response.data;
 
-			if (!user || !token) return alert('Usuário ou senha incorretos');
+			if (!user || !token) return;
 
 			localStorage.setItem('token', JSON.stringify(token));
 
@@ -51,14 +51,16 @@ export function Login() {
 
 			const { user, token }: { user: UserType, token: string } = response.data;
 
-			if (!user) return alert('Não foi possível criar sua conta');
+			if (!user || !token) return;
+
+			localStorage.setItem('token', JSON.stringify(token));
 
 			changeUser(user);
 			changeToken(token);
 			navigate('/');
 			showMessage('SUCCESS', 'Usuário criado com sucesso.');
 		} catch (error) {
-			alert('Não foi possível criar sua conta');
+			showMessage('ERROR', 'Não foi possível criar sua conta');
 		} finally {
 			setIsLoading(false);
 		}

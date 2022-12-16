@@ -27,12 +27,3 @@ export const RootHeader = styled.header`
 		padding: 10px 20px;
 	}
 `;
-
-export const RootHeaderSpan = styled.span`
-	font-size: 1.5rem;
-	color: ${({ theme }) => theme.colors.primary};
-`;
-
-export const BoldText = styled.span`
-	font-weight: bold;
-`;

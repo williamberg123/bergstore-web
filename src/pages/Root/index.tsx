@@ -5,7 +5,8 @@ import { MobileNavBar } from '../../components/MobileNavBar';
 import { NavBar } from '../../components/NavBar';
 import { UserProfile } from '../../components/UserProfile';
 import useMediaQuery from '../../hooks/useMediaQuery';
-import { BoldText, Container, OutletContainer, RootHeader, RootHeaderSpan } from './styles';
+
+import { Container, OutletContainer, RootHeader } from './styles';
 
 export function Root() {
 	const isMobile = useMediaQuery('(max-width: 800px)');
@@ -26,13 +27,7 @@ export function Root() {
 			<OutletContainer>
 				<RootHeader>
 					{
-						isMobile
-							? <UserProfile />
-							: (
-								<RootHeaderSpan>
-									Olá, <BoldText>William</BoldText>!
-								</RootHeaderSpan>
-							)
+						isMobile && <UserProfile />
 					}
 					<Logo size="1.5rem" />
 				</RootHeader>
