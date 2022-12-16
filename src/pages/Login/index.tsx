@@ -29,7 +29,9 @@ export function Login() {
 
 			const { user, token }: { user: UserType, token: string } = response.data;
 
-			if (!user) return alert('Usuário ou senha incorretos');
+			if (!user || !token) return alert('Usuário ou senha incorretos');
+
+			localStorage.setItem('token', JSON.stringify(token));
 
 			changeUser(user);
 			changeToken(token);

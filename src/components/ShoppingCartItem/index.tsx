@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { HiPlusSm, HiMinusSm } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 import { ProductType } from '../../@types/product';
 import { useAuth } from '../../hooks/useAuth';
@@ -79,8 +80,10 @@ export function ShoppingCartItem({ name, _id, count, removeOneProduct }: Product
 	return (
 		<Container>
 			<ProductFigure>
-				<ProductImage />
-				<ProductName>{name}</ProductName>
+				<Link to={`/products/${_id}`}>
+					<ProductImage />
+					<ProductName>{name}</ProductName>
+				</Link>
 			</ProductFigure>
 
 			<ProductAmount>{productAmount}</ProductAmount>

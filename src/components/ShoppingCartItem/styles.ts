@@ -17,6 +17,13 @@ export const ProductFigure = styled.figure`
 	flex-direction: column;
 	align-items: center;
 	border-radius: 10px;
+
+	& > a {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-decoration: none;
+	}
 `;
 
 export const ProductImage = styled.img`
