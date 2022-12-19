@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { InfinitySpin } from 'react-loader-spinner';
 import { BsCartCheck } from 'react-icons/bs';
 
@@ -9,6 +10,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { api } from '../../services/api';
 
 import { Container, ItemsContainer, NoProductsText, ShoppingCartPageTitle } from './styles';
+import { changePage } from '../../store/page';
 
 export function ShoppingCart() {
 	const [products, setProducts] = useState<ProductType[]>([]);
@@ -16,6 +18,7 @@ export function ShoppingCart() {
 
 	const { user, token } = useAuth();
 	const { showMessage } = useMessage();
+	const dispatch = useDispatch();
 
 	const findShoppingCartProducts = async () => {
 		try {
@@ -42,6 +45,7 @@ export function ShoppingCart() {
 
 	useEffect(() => {
 		findShoppingCartProducts();
+		dispatch(changePage('shoppingcart'));
 	}, []);
 
 	return (

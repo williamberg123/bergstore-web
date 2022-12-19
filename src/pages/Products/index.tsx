@@ -1,4 +1,5 @@
 import { ChangeEvent, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { InfinitySpin } from 'react-loader-spinner';
 import { BsBag } from 'react-icons/bs';
 
@@ -9,6 +10,7 @@ import { useMessage } from '../../hooks/useMessage';
 import { api } from '../../services/api';
 
 import { Container, ProductsContainer, ProductsPageTitle, SearchProductInput } from './styles';
+import { changePage } from '../../store/page';
 
 export function Products() {
 	const [products, setProducts] = useState<ProductType[]>([]);
@@ -17,6 +19,7 @@ export function Products() {
 
 	const { user, token } = useAuth();
 	const { showMessage } = useMessage();
+	const dispatch = useDispatch();
 
 	const findProducts = async () => {
 		try {
@@ -44,6 +47,7 @@ export function Products() {
 
 	useEffect(() => {
 		findProducts();
+		dispatch(changePage('products'));
 	}, []);
 
 	const filteredProducts = search ? products.filter(({ name }) => name.toLowerCase().includes(search)) : products;
