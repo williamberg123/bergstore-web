@@ -31,7 +31,7 @@ export const UlNavigation = styled.ul`
 		flex-direction: column;
 		align-items: center;
 		font-size: 0.8rem;
-		font-weight: bold;
+		font-weight: 500;
 	}
 
 	& a.page {
