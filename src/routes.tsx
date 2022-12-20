@@ -41,7 +41,14 @@ export const AppRoutes = () => {
 				<Route path="/shoppingcart" element={<ShoppingCart />} />
 				<Route path="/profile" element={<Profile />} />
 			</Route>
-			<Route path="/login" element={<Login />} />
+			<Route
+				path="/login"
+				element={(
+					<PrivateRoute isAuth={!user && !token} backTo="/">
+						<Login />
+					</PrivateRoute>
+				)}
+			/>
 		</Routes>
 	);
 };
