@@ -51,7 +51,6 @@ export function ShoppingCartItem({ name, _id, count, removeOneProduct }: Product
 			});
 
 			setProductAmount((s) => s + 1);
-			showMessage('SUCCESS', `Aumentou a quantidade de "${name}"`);
 		} catch (error) {
 			showMessage('ERROR', 'Não foi possível realizar a ação desejada');
 		}
@@ -60,7 +59,7 @@ export function ShoppingCartItem({ name, _id, count, removeOneProduct }: Product
 	const decreaseProductAmount = async () => {
 		try {
 			if (productAmount <= 1) {
-				showMessage('ERROR', 'Não é possível realizar a ação desejada');
+				// showMessage('ERROR', 'Não é possível realizar a ação desejada');
 				return;
 			}
 
@@ -73,7 +72,6 @@ export function ShoppingCartItem({ name, _id, count, removeOneProduct }: Product
 			});
 
 			setProductAmount((s) => s - 1);
-			showMessage('SUCCESS', `Diminuiu a quantidade de "${name}"`);
 		} catch (error) {
 			showMessage('ERROR', 'Não foi possível realizar a ação desejada');
 		}
@@ -94,7 +92,7 @@ export function ShoppingCartItem({ name, _id, count, removeOneProduct }: Product
 				<HiPlusSm />
 			</IncreaseButton>
 
-			<DecreaseButton onClick={decreaseProductAmount}>
+			<DecreaseButton onClick={decreaseProductAmount} disabled={productAmount <= 1}>
 				<HiMinusSm />
 			</DecreaseButton>
 

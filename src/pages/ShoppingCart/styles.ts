@@ -39,6 +39,15 @@ export const ItemsContainer = styled.div`
 `;
 
 export const NoProductsText = styled.span`
+	display: flex;
+	align-items: center;
 	margin: auto;
 	color: #AEAEAE;
+	font-size: 1.3rem;
+
+	& svg {
+		width: 30px;
+		height: 30px;
+		margin-right: 10px;
+	}
 `;

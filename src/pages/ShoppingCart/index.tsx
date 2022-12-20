@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { InfinitySpin } from 'react-loader-spinner';
-import { BsCartCheck } from 'react-icons/bs';
+import { BsCartCheck, BsCartX } from 'react-icons/bs';
 
 import { ShoppingCartItem } from '../../components/ShoppingCartItem';
 import { useMessage } from '../../hooks/useMessage';
@@ -75,7 +75,10 @@ export function ShoppingCart() {
 
 			{
 				(!isLoading && !products.length) && (
-					<NoProductsText>Não há nada no carrinho</NoProductsText>
+					<NoProductsText>
+						<BsCartX />
+						Nenhum produto
+					</NoProductsText>
 				)
 			}
 		</Container>
