@@ -7,8 +7,8 @@ import { useMessage } from '../../hooks/useMessage';
 import { ProductType } from '../../@types/product';
 import { useAuth } from '../../hooks/useAuth';
 import { api } from '../../services/api';
-import { Container, ProductNotFound } from './styles';
 import { ProductPageInfo } from '../../components/ProductPageInfo';
+import { Container, ProductNotFound } from './styles';
 
 export function ProductPage() {
 	const [product, setProduct] = useState({} as ProductType);

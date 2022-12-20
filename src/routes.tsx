@@ -8,6 +8,7 @@ import { Products } from './pages/Products';
 import { ShoppingCart } from './pages/ShoppingCart';
 import { ProductPage } from './pages/ProductPage';
 import { useAuth } from './hooks/useAuth';
+import { Profile } from './pages/Profile';
 
 interface PrivateRouteProps {
 	children: ReactNode;
@@ -38,6 +39,7 @@ export const AppRoutes = () => {
 				<Route path="/products" element={<Products />} />
 				<Route path="/products/:id" element={<ProductPage />} />
 				<Route path="/shoppingcart" element={<ShoppingCart />} />
+				<Route path="/profile" element={<Profile />} />
 			</Route>
 			<Route path="/login" element={<Login />} />
 		</Routes>

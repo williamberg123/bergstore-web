@@ -18,6 +18,8 @@ import {
 	RemoveButton,
 } from './styles';
 
+import blusa from '../../assets/blusa.jpg';
+
 export function ShoppingCartItem({ name, _id, count, removeOneProduct }: ProductType) {
 	const [productAmount, setProductAmount] = useState(count as number);
 	const { user, token } = useAuth();
@@ -81,7 +83,7 @@ export function ShoppingCartItem({ name, _id, count, removeOneProduct }: Product
 		<Container>
 			<ProductFigure>
 				<Link to={`/products/${_id}`}>
-					<ProductImage />
+					<ProductImage src={blusa} />
 					<ProductName>{name}</ProductName>
 				</Link>
 			</ProductFigure>
@@ -96,7 +98,7 @@ export function ShoppingCartItem({ name, _id, count, removeOneProduct }: Product
 				<HiMinusSm />
 			</DecreaseButton>
 
-			<RemoveButton onClick={removeShoppingCartProduct}>Remove</RemoveButton>
+			<RemoveButton onClick={removeShoppingCartProduct}>Remover</RemoveButton>
 		</Container>
 	);
 }

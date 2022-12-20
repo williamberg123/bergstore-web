@@ -7,6 +7,8 @@ import { ProductType } from '../../@types/product';
 import { useAuth } from '../../hooks/useAuth';
 import { api } from '../../services/api';
 
+import blusa from '../../assets/blusa.jpg';
+
 import { AddProductButton, Container, Figure, ProductDescription, ProductImage, ProductName, ProductPrice } from './styles';
 
 export function Product({ name, description, price, _id, hasAlreadyAdded }: ProductType) {
@@ -44,7 +46,7 @@ export function Product({ name, description, price, _id, hasAlreadyAdded }: Prod
 		<Container>
 			<Figure>
 				<Link to={`/products/${_id}`}>
-					<ProductImage />
+					<ProductImage src={blusa} />
 				</Link>
 			</Figure>
 

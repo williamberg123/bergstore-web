@@ -36,9 +36,9 @@ export function Login() {
 			changeUser(user);
 			changeToken(token);
 			navigate('/');
-			showMessage('SUCCESS', 'Usuário logado com sucesso.');
+			showMessage('SUCCESS', 'Usuário logado com sucesso');
 		} catch (error) {
-			showMessage('ERROR', 'Usuário ou senha incorretos.');
+			showMessage('ERROR', 'Usuário ou senha incorretos');
 		} finally {
 			setIsLoading(false);
 		}
@@ -58,7 +58,7 @@ export function Login() {
 			changeUser(user);
 			changeToken(token);
 			navigate('/');
-			showMessage('SUCCESS', 'Usuário criado com sucesso.');
+			showMessage('SUCCESS', 'Usuário criado com sucesso');
 		} catch (error) {
 			showMessage('ERROR', 'Não foi possível criar sua conta');
 		} finally {

@@ -9,6 +9,7 @@ export const Container = styled.div`
 	border-radius: 10px;
 	padding: 0 10px 10px;
 	background-color: white;
+	box-shadow: 2px 2px 8px #AEAEAE;
 
 	@media (max-width: 600px) {
 		width: 180px;
@@ -29,7 +30,10 @@ export const Figure = styled.figure`
 	}
 `;
 
-export const ProductImage = styled.img``;
+export const ProductImage = styled.img`
+	width: 100%;
+	border-radius: 10px;
+`;
 
 export const ProductName = styled.span`
 	font-weight: bold;

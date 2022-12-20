@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { MdHomeFilled, MdLocalGroceryStore } from 'react-icons/md';
 import { BsFillBagPlusFill } from 'react-icons/bs';
 
-import { UserProfile } from '../UserProfile';
 import { Container, UlNavigation } from './styles';
 import { changePage } from '../../store/page';
+import { UserProfile } from '../UserProfile';
 
 export type PageType = 'home' | 'products' | 'shoppingcart'
 
@@ -16,7 +16,6 @@ export function NavBar() {
 	return (
 		<Container>
 			<UserProfile />
-
 			<UlNavigation>
 				<li>
 					<Link className={page === 'home' ? 'page' : ''} onClick={() => dispatch(changePage('home'))} to="/">
@@ -35,7 +34,7 @@ export function NavBar() {
 				</li>
 			</UlNavigation>
 
-			<div style={{ width: '70px', height: '70px' }} />
+			<div />
 		</Container>
 	);
 }

@@ -35,6 +35,7 @@ export const Container = styled.span<{ type: 'SUCCESS' | 'ERROR', show: boolean,
 		background-color: ${({ type }) => type === 'SUCCESS' ? '#009775' : '#ff3333'};
 		color: white;
 		border-radius: 50%;
+		margin-right: 10px;
 	}
 
 	@keyframes toemergemessage {

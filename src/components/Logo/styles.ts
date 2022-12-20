@@ -4,6 +4,7 @@ export const Container = styled.span<{ size: string }>`
 	font-weight: bold;
 	font-family: 'Montserrat', sans-serif;
 	font-size: ${({ size }) => size};
+	user-select: none;
 `;
 
 export const PinkText = styled.span`

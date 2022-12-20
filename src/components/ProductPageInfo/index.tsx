@@ -13,6 +13,8 @@ import {
 	AddProductButton,
 } from './styles';
 
+import blusa from '../../assets/blusa.jpg';
+
 export function ProductPageInfo({ name, description, price }: ProductType) {
 	const formatedPrice = Number(price / 100).toFixed(2).replace('.', ',');
 
@@ -40,7 +42,7 @@ export function ProductPageInfo({ name, description, price }: ProductType) {
 				</ButtonsContainer>
 			</ProductInfoContainer>
 
-			<ProductImage />
+			<ProductImage src={blusa} />
 		</>
 	);
 }

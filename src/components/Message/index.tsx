@@ -1,3 +1,5 @@
+import { BiErrorCircle, BiCheckCircle } from 'react-icons/bi';
+
 import { useMessage } from '../../hooks/useMessage';
 import { Container } from './styles';
 
@@ -10,6 +12,11 @@ export function Message() {
 
 	return (
 		<Container type={messageType} show={show} isFirstRender={isFirstRender}>
+			{
+				messageType === 'ERROR'
+				? <BiErrorCircle />
+				: <BiCheckCircle />
+			}
 			{message}
 		</Container>
 	);

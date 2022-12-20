@@ -31,9 +31,9 @@ export function Products() {
 			});
 
 			setProducts(data.products);
-			showMessage('SUCCESS', 'Confira nossos produtos.');
+			showMessage('SUCCESS', 'Confira nossos produtos');
 		} catch (error) {
-			showMessage('ERROR', 'Não foi possível buscar os produtos.');
+			showMessage('ERROR', 'Não foi possível buscar os produtos');
 		} finally {
 			setIsLoading(false);
 		}
