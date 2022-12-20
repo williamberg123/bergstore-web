@@ -1,5 +1,5 @@
 import { useAuth } from '../../hooks/useAuth';
-import { Container, Input, Label, LogoutButton, ResetPasswordButton, Title } from './styles';
+import { ButtonsContainer, Container, DeleteUserButton, Input, Label, LogoutButton, ResetPasswordButton, Title } from './styles';
 
 export function Profile() {
 	const { user, changeToken, changeUser } = useAuth();
@@ -21,7 +21,10 @@ export function Profile() {
 			<ResetPasswordButton>Redefinir senha</ResetPasswordButton>
 
 			<Title>Conta</Title>
-			<LogoutButton onClick={logout}>Sair</LogoutButton>
+			<ButtonsContainer>
+				<LogoutButton onClick={logout}>Sair</LogoutButton>
+				<DeleteUserButton>Deletar conta</DeleteUserButton>
+			</ButtonsContainer>
 		</Container>
 	);
 }

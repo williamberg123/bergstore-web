@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
+import { useAuth } from '../hooks/useAuth';
 
 type MessageTypeOptions = 'SUCCESS' | 'ERROR';
 
@@ -17,6 +18,8 @@ export function MessageProvider({ children }: { children: ReactNode }) {
 	const [show, setShow] = useState(false);
 	const [messageType, setMessageType] = useState<MessageTypeOptions>('SUCCESS');
 	const [message, setMessage] = useState('Logado com sucesso');
+
+	const { isPageLoading } = useAuth();
 
 	const isFirstRender = useRef(true);
 
@@ -39,10 +42,10 @@ export function MessageProvider({ children }: { children: ReactNode }) {
 	}, [show, isFirstRender.current]);
 
 	useEffect(() => {
-		if (isFirstRender.current) {
+		if (isFirstRender.current && !isPageLoading) {
 			isFirstRender.current = false;
 		}
-	}, [isFirstRender.current]);
+	}, [isFirstRender.current, isPageLoading]);
 
 	const context = useMemo(() => ({
 		messageType, message, show, showMessage, isFirstRender: isFirstRender.current,

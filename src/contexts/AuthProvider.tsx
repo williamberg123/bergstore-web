@@ -42,6 +42,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 			}
 		} catch (error) {
 			// código para erro aqui
+			localStorage.removeItem('token');
 		} finally {
 			setIsPageLoading(false);
 		}

@@ -52,6 +52,11 @@ export const ResetPasswordButton = styled.button`
 	}
 `;
 
+export const ButtonsContainer = styled.div`
+	display: flex;
+	align-items: center;
+`;
+
 export const LogoutButton = styled.button`
 	width: fit-content;
 	border-radius: 5px;
@@ -62,4 +67,12 @@ export const LogoutButton = styled.button`
 	font-weight: bold;
 	font-size: 0.8rem;
 	cursor: pointer;
+	margin-top: 20px;
+	border: 2px solid ${({ theme }) => theme.colors.primary};
+`;
+
+export const DeleteUserButton = styled(LogoutButton)`
+	color: ${({ theme }) => theme.colors.primary};
+	background-color: white;
+	margin-left: 20px;
 `;
