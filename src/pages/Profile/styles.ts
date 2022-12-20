@@ -76,3 +76,45 @@ export const DeleteUserButton = styled(LogoutButton)`
 	background-color: white;
 	margin-left: 20px;
 `;
+
+export const ConfirmDeleteUserBackground = styled.div`
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+`;
+
+export const ConfirmDeleteUserBox = styled.div`
+	display: flex;
+	flex-direction: column;
+	background-color: #EEEEEE;
+	color: ${({ theme }) => theme.colors.primary};
+	padding: 10px;
+	border-radius: 10px;
+	font-weight: bold;
+`;
+
+export const ConfirmDeleteUserButton = styled.button`
+	width: fit-content;
+	padding: 7px 20px;
+	border-radius: 5px;
+	border: none;
+	margin-top: 10px;
+	border: 2px solid ${({ theme }) => theme.colors.primary};
+	color: ${({ theme }) => theme.colors.primary};
+	font-weight: bold;
+	cursor: pointer;
+`;
+
+export const CancelDeleteUserButton = styled(ConfirmDeleteUserButton)`
+	background-color: ${({ theme }) => theme.colors.primary};
+	color: white;
+	margin-left: 10px;
+`;

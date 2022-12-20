@@ -27,6 +27,11 @@ export const UlNavigation = styled.ul`
 	& a {
 		text-decoration: none;
 		color: #AEAEAE;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		font-size: 0.8rem;
+		font-weight: bold;
 	}
 
 	& a.page {
@@ -36,6 +41,7 @@ export const UlNavigation = styled.ul`
 	& svg {
 		width: 25px;
 		height: 25px;
+		margin-bottom: 3px;
 	}
 `;
 

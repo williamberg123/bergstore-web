@@ -20,16 +20,19 @@ export function NavBar() {
 				<li>
 					<Link className={page === 'home' ? 'page' : ''} onClick={() => dispatch(changePage('home'))} to="/">
 						<MdHomeFilled />
+						Home
 					</Link>
 				</li>
 				<li>
 					<Link className={page === 'products' ? 'page' : ''} onClick={() => dispatch(changePage('products'))} to="/products">
 						<BsFillBagPlusFill />
+						Produtos
 					</Link>
 				</li>
 				<li>
 					<Link className={page === 'shoppingcart' ? 'page' : ''} onClick={() => dispatch(changePage('shoppingcart'))} to="/shoppingcart">
 						<MdLocalGroceryStore />
+						Carrinho
 					</Link>
 				</li>
 			</UlNavigation>
